@@ -14,19 +14,19 @@ function drawSimetryDiamond(n) {
   let leftBound = 0;
   let rightBound = n - 1;
   let pen = 0;
-  while (result.length < n * n) {
-    if (pen === leftBound || pen === rightBound) result += "*";
-    else {
-      if (pen !== n) result += " ";
-    }
+  while (result.length < n * n + n) {
     if (pen === n) {
       result += "\n";
       leftBound++;
       rightBound--;
       pen = 0;
-      continue;
+    } else if (pen === leftBound || pen === rightBound) {
+      result += "*";
+      pen++;
+    } else {
+      result += " ";
+      pen++;
     }
-    pen++;
   }
   return result;
 }
